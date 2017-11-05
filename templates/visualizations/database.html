@@ -1,0 +1,169 @@
+{% extends "base.html"%}
+{% block title %}Brown Spatial Explorer{% endblock %}
+
+{% block scripts %}
+        <style type="text/css">
+
+#allcontent {
+    width: 900px;
+    margin: 0 auto;
+    padding: 0 30px;
+    border-left: thin dotted;
+    border-right: thin dotted;
+    min-height: 5600px;
+}
+
+#map { 
+    height: 1000px; 
+}
+
+#circles circle {
+    fill: steelblue;
+    stroke: darkblue;
+    stroke-width: 1px;
+    padding: 2px;
+    fill-opacity: .8;
+    z-index: 10;
+
+}
+
+h1 {
+   color: #333;
+}
+
+a {
+    color: #333;
+    font-weight: bold;
+    text-decoration:none;
+}
+
+
+button {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: .6em;
+    color: #333;
+    padding: 5px;
+    background-color: #eee;
+    -moz-border-radius:10px;
+    border-radius: 10px;
+}
+
+#searchedBox {
+    height: 200px;
+    width:300px;
+    overflow:scroll;
+    float:left;
+    padding-left: 10px;
+}
+
+#slider_buttons_div {
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+   color: darkblue;
+    top:50%;
+     position: fixed;
+    height: 120px;
+    width: 260;
+    z-index: 100;
+    right: 5%;
+}
+
+#slider {
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+    color: darkblue;
+    top:65%;
+    position: fixed;
+    z-index: 100;
+    right: 5%;
+    height: 10px;
+    width: 260px;
+    margin-top: 10px;
+}
+
+#labelDiv {
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+    color: darkblue;
+    top:65%;
+    position: fixed;
+    z-index: 100;
+    right: 5%;
+    height: 10px;
+    width: 275px;
+    margin-top: 10px;
+}
+.fixedDiv {
+    top: 65%;
+    left:5%;
+    position: fixed;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+    color: darkblue;
+    height: 120px;
+    width: 300px;
+    z-index:100;
+}
+
+.searched_box_buttons { 
+    background:none;
+    border:none; 
+}
+
+
+#text{
+    background-color: white;
+    z-index: 1000000;
+    position: relative;
+}
+        </style>
+{% endblock %} <!-- end scripts in header -->
+
+{% block content%}
+            <div id="main">
+                    <p><h1>Designing a Periodical Studies Database</h1>
+                    At the beginning of Soviet Journals Reconnected stood the idea of a dataset that would collect and connect information about thick journals. Who published what, where, and when? Some of the relevant data os available in digital format already, which made the project much more feasible. The Chronicle of Journal Articles, a Soviet index of all periodical publication, has been digitized by <a target="_blank" href="http://webapp1.dlib.indiana.edu/letopis/index.jsp?lang=en" alt="Link to the Indiana University Libraries Digital Projects website">Indiana University Libraries Digital Projects &#038; Services</a>. Since SJR is specifically interested in the institutional and social framework of Soviet publishing, additional data was gathered: print runs, page counts, and editors. This additional data as well as the project’s focus on methods like network analysis called for a reorganization of the data in a relational database that specifically suits the needs of a digital periodical studies project.</p>
+
+                    <p>The database schema presented here was designed with SJR's research questions in mind, but it is also envisioned as a model that can align easily with adjacent research projects and that can accommodate datasets from different cultural, geographical, and historical contexts.</p>
+
+                    <p><img src={{url_for('static', filename="images/sjr_database.png")}} style="width:900;height:676px;" hspace="5" border="1"></p>
+
+                    <p>SJR uses a relational database in MySQL that consists of four modules: journals, contributions, persons and locations. (What is a relational database?) In keeping with current periodical studies research, the SJR database has at its core not the individual text, but the journal and the individual issue, which provides is the connecting point between two (overlapping) social groups: editors and authors.</p>
+
+                    <p><h2>The Persons and Locations Modules</h2>
+                    The Persons and Locations modules are really just one list each, but designing them as separate modules nevertheless was a conscious decision.</p>
+
+                    <p><img src={{url_for('static', filename="images/sjr_database_persons_locations.png")}} style="width:900;height:676px;" hspace="5" border="1"></p>
+
+                    <p>The locations list is connected to the issue, rather than the journal. Over the years, editorial offices can relocate physically, but every issue is usually produced only in one place (a reality I have encountered in my work on emigre journals). But even if the offices stay in the same place, they may be located in changing political entities (e.g. Russian Empire, Soviet Union, Russian Federation). In this case, the the locations module could be easily expanded to reflect this reality. For SJR, changes are limited. In fact, I decided to use Soviet location names, because they are consistent throughout the time period covered: Leningrad for Saint Petersburg, Sverdlovsk for Ekaterinburg, (hypothetically) Frunze for Bishkek, etc. It also features geopositioning data to afford potential mapping projects.</p>
+
+                    <p>The persons module, also a single table, takes up a special position. It stands between the journals module and the contributions module, because both editors and authors are persons and they routinely appear in both roles. In fact, this is one of questions SJR is especially interested in: how did editors act in their roles as authors? (More often than not did they publish not in their own journals, which brings up peculiar questions about the mechanisms of Soviet publishing.)</p>
+
+                    <p>The persons list features information on first name, last name, and patronymic. The VIAF field in the persons table connects the SJR database to a bibliographic convention and allows to identify authors as unique historical persons. (More on VIAF and the challenges of reconciling data.)</p>
+
+                    <p><h2>The Journals Module</h2>
+                    The Journals Module consists of three tables. The journals table lists all journals (Novyi mir, Iunost’, Oktiabr’, etc.). Just like all other tables, it captures Russian-language information in the original and in Library of Congress transliteration (more on automatized transliteration). The issues list includes information about each individual journal issue. The field issues_pa indicates the publication frequency of the journal at the time of publication: 12, 6 or 4 issues per year.
+
+                    <p><img src={{url_for('static', filename="images/sjr_database_journals.png")}} style="width:900;height:675px;" hspace="5" border="1"></p>
+
+                    <p>The table editroles contains a list of editorial functions that allows filtering editors by the degree of their involvement or power in the publication process: chief editor (главный редактор), deputy editor (заместитель главного редактора), editor (редактор), and secretary (ответственный секретарь). Finally, the table editrolepersonissue is a linking table, allowing to connect multiple persons in various editorial roles to one issue.</p>
+
+                    <p><h2>The Contributions Module</h2>
+                    The contributions module is closest to the traditional constituent-level bibliographical information. At its center stands the individual contribution, connected to a concrete issue and assigned a contribution type provided by the table contributiontypes. Contributiontypes relies on the definitions provided by the journals themselves that often referenced a genre in the contributions’ subheading. The researcher needs to be cautious of the potential flawdness of the data. It is historically determined and its completeness depends fully on the somewhat fluctuating publishing practices of the journals.</p>
+
+                    <p><img src={{url_for('static', filename="images/sjr_database_contributions.png")}} style="width:900;height:674px;" hspace="5" border="1"></p>
+
+                    <p>Finally, the contributions are connected to the persons table by the linking table contribrolepersoncontribution, where the contribrole table provides a number of roles, in which persons can be connected to the creation of a contribution: as an author, a translator, an illustrator, a redactor (in the sense of the Russian составитель) for selections.</p>
+
+                    <p>While an online search interface for the database is still being developed, you can access the database itself on my Github account.</p>
+
+
+            </div><!-- end main -->
+            
+    
+
+
+
+
+
+{% endblock %} <!-- end content block -->

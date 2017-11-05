@@ -1,0 +1,117 @@
+body {
+	font-family: Palatino Linotype, Book Antiqua, Palatino, serif;
+}
+
+#allcontent {
+	width: 900px;
+	margin: 0 auto;
+	padding: 0 30px;
+	border-left: thin dotted;
+	border-right: thin dotted;
+	min-height: 800px;
+}
+
+a {
+	font-weight: bold;
+	color: #666;
+	text-decoration: none;
+}
+
+h2 {
+	color: #333;
+	margin-bottom: 0;
+	font-style: italic;
+}
+
+#creators {
+	margin-top: -40px;
+	text-align: right;
+}
+
+.smallcaps {
+	font-variant: small-caps;
+}
+
+.notebene {
+	font-weight: bold;
+	color: #333;
+}
+
+#navbar {
+	width:: 900px;
+	margin: 0 auto;
+	padding: 30px;
+	border-left: thin dotted;
+	border-right: thin dotted;
+	min-height: 50px;
+}
+
+#nav_fieldl {
+	width: 149px;
+	float: left;
+	text-align: center;
+	margin: 0 auto;
+	border-left: thin dotted;
+	border-bottom: thin dotted;
+	min-height: 50px;
+}
+
+#nav_fieldr {
+	width: 148px;
+	float: left;
+	text-align: center;
+	margin: 0 auto;
+	border-left: thin dotted;
+	border-right: thin dotted;
+	border-bottom: thin dotted;
+	min-height: 50px;
+}
+
+#wrapper {
+	border-top: thin dotted;
+}
+
+
+#main {
+	width: 900px;
+	float: right;
+	font-size: 1.4em;
+
+}
+
+#credits {
+	border-top: thin dotted;
+	clear:both;
+}
+
+#credits table {
+	margin: 0 auto;
+}
+
+#credits table td{
+	padding: 30px;
+}
+
+p.caption {
+	font-size: .9em;
+	font-weight: bold;
+	color: #333;
+	margin-top: -5px;
+	padding: 5px;
+	width: 200px;
+	line-height: .95em;
+	background-color: #eee;
+}
+
+#footer {
+	border-top: thin dotted;
+}
+
+#footer p {
+	float: left;
+}
+
+#footer_credits {
+	float: right;
+	padding-top: 10px;
+}
