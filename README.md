@@ -12,7 +12,7 @@ $ virtualenv venv
 
 $ . venv/bin/activate
 
-$ export FLASK_APP=soviet_journals.py
+$ export FLASK_APP=app.py
 
 $ flask run
 
