@@ -1,6 +1,6 @@
 # Soviet Journals
 
-The Soviet Journals website is the web interface (flask app) of the digital humanities project Soviet Journals Reconnected, developed by Philip Gleissner at the Center for Digital Humanities at Princeton. The flask app is based on Brown University Library's [Mapping Genres app](https://github.com/Brown-University-Library/mapping-genres-website)
+The Soviet Journals website is the web interface (flask app) of the digital humanities project Soviet Journals Reconnected, developed by Philip Gleissner at the Center for Digital Humanities at Princeton. The flask app is based on Brown University Library's [Mapping Genres app](https://github.com/Brown-University-Library/mapping-genres-website).
 
 It features a number of static sites with information on Soviet literary magazines and the Soviet Journals Reconnected Database. A Gephi plugin presents interactive visualizations of networks.
 
@@ -13,6 +13,8 @@ Then run the following commands:
 `$ virtualenv venv`
 
 `$ . venv/bin/activate`
+
+`$ pip install -r requirements.txt`
 
 `$ export FLASK_APP=app.py`
 
