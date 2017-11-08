@@ -1,59 +1,54 @@
 <!DOCTYPE html>
 <html>
-    <head>
-    	{% block head %}
-    	<title>{% block title %}{% endblock %} | Soviet Journals Reconnected</title>
-    	<link type="text/css" rel="stylesheet" href={{url_for('static', filename='styles/genres.css')}}/>
-    	<link type="text/css" rel="stylesheet" href={{url_for('static', filename='styles/database.css')}}/>
-    	{% block scripts %}<!-- Space for additional javascript, jquery, or css -->{% endblock %}
-    	{% endblock %} <!-- end of block 'head' -->
-    </head>
-    <body>
-    	<div id="allcontent">
-	    	<div id ="header">
-	    		<a href={{url_for("home")}}><img src={{url_for('static', filename="images/HeaderGraphic.jpg")}}></a>
-	    		<div id="creators">
-	    			<p> <span class="smallcaps">created by</span>
-	    				<a target="_blank" href="http://www.philipgleissner.com">Philip Gleissner</a>
-	    			</p>
-	    		</div><!-- end creators -->
-	    	</div><!-- end header -->
-	    	<div id="nav_bar">
-				<div id="nav_fieldl">
-					<p> <a a href={{url_for("home")}} class="smallcaps">Home</a>
-	    			</a></p>
-				</div>
-				<div id="nav_fieldl">
-					<p> <a target="_blank" href="http://cdh.princeton.edu" class="smallcaps">The Journals</a>
-	    			</a></p>
-				</div>
-				<div id="nav_fieldl">
-					<p> <a target="_blank" href="http://cdh.princeton.edu" class="smallcaps">Networks</a>
-	    			</a></p>
-				</div>
-				<div id="nav_fieldl">
-					<p> <a target="_blank" href="http://cdh.princeton.edu" class="smallcaps">Visual Essays</a>
-	    			</a></p>
-				</div>
-				<div id="nav_fieldl">
-					<a href={{url_for("database")}}> 
-					<p class="smallcaps">Database</p>
-	    			</a>
-				</div>
-				<div id="nav_fieldr">
-					<p> <a target="_blank" href="http://philipgleissner.com/category/sjr/" class="smallcaps">Blog</a>
-	    			</a></p>
-				</div>
-	    	<div id="content">
-	    		{% block content%}
-	    		{% endblock %}
-	    	</div><!--end content -->
-	    	<div id="footer">
-				<p><em>Soviet Journals Reconnected: Periodical Networks under Late Socialism</em></p>
-				<div id="footer_credits">
-					<a target="_blank" href="http://cdh.princeton.edu"><img src={{url_for('static', filename="images/cdh_logo.png")}} title="Center for Digital Humanities at Princeton"></a>
-				</div>
-			</div><!--end footer-->
-    	</div><!-- end allcontent -->
-    </body>
+  <head>
+    {% block head %}
+    <title>{% block title %}{% endblock %} | Soviet Journals Reconnected</title>
+    <link type="text/css" rel="stylesheet" href={{url_for('static', filename='styles/genres.css')}}/>
+    <link type="text/css" rel="stylesheet" href={{url_for('static', filename='styles/database.css')}}/>
+    {% endblock %} <!-- end of block 'head' -->
+  </head>
+  <body>
+    <div id="allcontent">
+      <div id ="header">
+        <a href={{url_for("home")}}><img src={{url_for('static', filename="images/HeaderGraphic.jpg")}}></a>
+        <div id="creators">
+          <p> <span class="smallcaps">created by</span>
+          <a target="_blank" href="http://www.philipgleissner.com">Philip Gleissner</a>
+          </p>
+        </div><!-- end creators -->
+      </div><!-- end header -->
+      <div id="nav_bar">
+        <div id="nav_fieldl">
+          <p> <a href={{url_for("home")}} class="smallcaps">Home</a>
+          </a></p>
+        </div>
+        <div id="nav_fieldl">
+          <p><a href={{url_for("journals")}} class="smallcaps">The Journals</a></p>
+        </div>
+        <div id="nav_fieldl">
+          <p><a target="_blank" href="http://cdh.princeton.edu" class="smallcaps">Networks</a></p>
+        </div>
+        <div id="nav_fieldl">
+          <p><a target="_blank" href="http://cdh.princeton.edu" class="smallcaps">Visual Essays</a></p>
+        </div>
+        <div id="nav_fieldl">
+          <p><a href={{url_for("database")}} class="smallcaps">Database</a></p>
+        </div>
+        <div id="nav_fieldr">
+          <p><a target="_blank" href="http://philipgleissner.com/category/sjr/" class="smallcaps">Blog</a></p>
+        </div>
+
+        <div id="content">
+          {% block content%}
+          {% endblock %}
+        </div>
+
+        <div id="footer">
+          <p><em>Soviet Journals Reconnected: Periodical Networks under Late Socialism</em></p>
+          <div id="footer_credits">
+            <a target="_blank" href="http://cdh.princeton.edu"><img src={{url_for('static', filename="images/cdh_logo.png")}} title="Center for Digital Humanities at Princeton"></a>
+          </div>
+        </div><!-- end footer -->
+      </div><!-- end allcontent -->
+  </body>
 </html>
