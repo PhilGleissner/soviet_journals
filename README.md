@@ -8,7 +8,7 @@ It features a number of static sites with information on Soviet literary magazin
 
 If you don't have virtualenv installed yet, run `pip install virtualenv` first.
 
-Then run the following commands:
+If you're setting this project up for the first time, then run the following commands:
 
 `$ virtualenv venv`
 
@@ -21,6 +21,8 @@ Then run the following commands:
 `$ flask run`
 
 Use control+C to stop the flask app and `$ deactivate` to leave venv.
+
+Once you've got your virtualenv set up wit flask, you can skip pip installing requirements and exporting app.py.
 
 ## Tutorial
 
