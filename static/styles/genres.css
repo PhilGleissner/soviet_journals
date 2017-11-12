@@ -38,50 +38,40 @@ h2 {
 }
 
 #navbar {
-	width:: 900px;
+  display: flex;
 	margin: 0 auto;
 	padding: 30px;
-	border-left: thin dotted;
-	border-right: thin dotted;
 	min-height: 50px;
 }
 
-#nav_fieldl {
-	width: 149px;
-	float: left;
+.nav-field {
+  list-style: none;
+  width: 150px;
 	text-align: center;
 	margin: 0 auto;
 	border-left: thin dotted;
 	border-bottom: thin dotted;
+  border-top: thin dotted;
 	min-height: 50px;
 }
 
-#nav_fieldr {
-	width: 148px;
-	float: left;
-	text-align: center;
-	margin: 0 auto;
-	border-left: thin dotted;
+.nav-field:last-child {
 	border-right: thin dotted;
-	border-bottom: thin dotted;
-	min-height: 50px;
 }
 
 #wrapper {
 	border-top: thin dotted;
 }
 
-
 #main {
 	width: 900px;
 	float: right;
 	font-size: 1.4em;
-
 }
 
 #credits {
 	border-top: thin dotted;
-	clear:both;
+	clear: both;
 }
 
 #credits table {
