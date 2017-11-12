@@ -20,19 +20,19 @@
       </div><!-- end header -->
       <ul id="navbar">
         <li class="nav-field">
-          <p> <a href={{url_for("home")}} class="smallcaps">Home</a></p>
+          <p {% if request.path == '/' %}class="current-page"{% endif %}><a href={{url_for("home")}} class="smallcaps">Home</a></p>
         </li>
         <li class="nav-field">
-        <p><a href={{url_for("journals")}} class="smallcaps">The Journals</a></p>
+        <p {% if request.path == '/journals' %}class="current-page"{% endif %}><a href={{url_for("journals")}} class="smallcaps">The Journals</a></p>
         </li>
         <li class="nav-field">
-          <p><a target="_blank" href="http://cdh.princeton.edu" class="smallcaps">Networks</a></p>
+          <p {% if request.path == '/networks' %}class="current-page"{% endif %}><a target="_blank" href="http://cdh.princeton.edu" class="smallcaps">Networks</a></p>
         </li>
         <li class="nav-field">
-          <p><a target="_blank" href="http://cdh.princeton.edu" class="smallcaps">Visual Essays</a></p>
+          <p {% if request.path == '/visual-essays' %}class="current-page"{% endif %}><a target="_blank" href="http://cdh.princeton.edu" class="smallcaps">Visual Essays</a></p>
         </li>
         <li class="nav-field">
-          <p><a href={{url_for("database")}} class="smallcaps">Database</a></p>
+          <p {% if request.path == '/visualizations/database' %}class="current-page"{% endif %}><a href={{url_for("database")}} class="smallcaps">Database</a></p>
         </li>
         <li class="nav-field">
           <p><a target="_blank" href="http://philipgleissner.com/category/sjr/" class="smallcaps">Blog</a></p>

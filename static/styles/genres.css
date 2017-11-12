@@ -1,5 +1,6 @@
 body {
 	font-family: Palatino Linotype, Book Antiqua, Palatino, serif;
+  font-size: 16px;
 }
 
 #allcontent {
@@ -57,6 +58,15 @@ h2 {
 
 .nav-field:last-child {
 	border-right: thin dotted;
+}
+
+.nav-field a {
+  font-weight: normal;
+  font-size: 1.2em;
+}
+
+.current-page a {
+  font-weight: bold;
 }
 
 #wrapper {
