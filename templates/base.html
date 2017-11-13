@@ -18,27 +18,26 @@
           </p>
         </div><!-- end creators -->
       </div><!-- end header -->
-      <div id="nav_bar">
-        <div id="nav_fieldl">
-          <p> <a href={{url_for("home")}} class="smallcaps">Home</a>
-          </a></p>
-        </div>
-        <div id="nav_fieldl">
-          <p><a href={{url_for("journals")}} class="smallcaps">The Journals</a></p>
-        </div>
-        <div id="nav_fieldl">
-          <p><a target="_blank" href="http://cdh.princeton.edu" class="smallcaps">Networks</a></p>
-        </div>
-        <div id="nav_fieldl">
-          <p><a target="_blank" href="http://cdh.princeton.edu" class="smallcaps">Visual Essays</a></p>
-        </div>
-        <div id="nav_fieldl">
-          <p><a href={{url_for("database")}} class="smallcaps">Database</a></p>
-        </div>
-        <div id="nav_fieldr">
+      <ul id="navbar">
+        <li class="nav-field">
+          <p {% if request.path == '/' %}class="current-page"{% endif %}><a href={{url_for("home")}} class="smallcaps">Home</a></p>
+        </li>
+        <li class="nav-field">
+        <p {% if request.path == '/journals' %}class="current-page"{% endif %}><a href={{url_for("journals")}} class="smallcaps">The Journals</a></p>
+        </li>
+        <li class="nav-field">
+          <p {% if request.path == '/networks' %}class="current-page"{% endif %}><a target="_blank" href="http://cdh.princeton.edu" class="smallcaps">Networks</a></p>
+        </li>
+        <li class="nav-field">
+          <p {% if request.path == '/visual-essays' %}class="current-page"{% endif %}><a target="_blank" href="http://cdh.princeton.edu" class="smallcaps">Visual Essays</a></p>
+        </li>
+        <li class="nav-field">
+          <p {% if request.path == '/visualizations/database' %}class="current-page"{% endif %}><a href={{url_for("database")}} class="smallcaps">Database</a></p>
+        </li>
+        <li class="nav-field">
           <p><a target="_blank" href="http://philipgleissner.com/category/sjr/" class="smallcaps">Blog</a></p>
-        </div>
-
+        </li>
+      </ul>
         <div id="content">
           {% block content%}
           {% endblock %}
