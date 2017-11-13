@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Journals{% endblock %}
+{% block content%}
+<div id="wrapper">
+  <div id="main">
+    <h1>Journals</h1>
+    <ul>
+      {% for journal in journals_data  %}
+      <li class='journal'>
+        <img class='journal-cover' src={{url_for('static', filename=journal.imageSrc)}} alt="Magazine cover">
+        <section>
+          <h3>{{journal.heading}}</h3>
+          <p>{{journal.bodyText}}</p>
+        </section>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock %}
