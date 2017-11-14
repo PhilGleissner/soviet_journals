@@ -3,6 +3,7 @@
   <head>
     {% block head %}
     <title>{% block title %}{% endblock %} | Soviet Journals Reconnected</title>
+    <link type="text/css" rel="stylesheet" href={{url_for('static', filename='styles/normalize.css')}}/>
     <link type="text/css" rel="stylesheet" href={{url_for('static', filename='styles/genres.css')}}/>
     <link type="text/css" rel="stylesheet" href={{url_for('static', filename='styles/database.css')}}/>
     <link type="text/css" rel="stylesheet" href={{url_for('static', filename='styles/journals.css')}}/>
@@ -20,35 +21,60 @@
       </div><!-- end header -->
       <ul id="navbar">
         <li class="nav-field">
-          <p {% if request.path == '/' %}class="current-page"{% endif %}><a href={{url_for("home")}} class="smallcaps">Home</a></p>
+          <p {% if request.path == '/' %}class="current-page"{% endif %}>
+          <a href={{url_for("home")}} class="smallcaps">Home</a>
+          </p>
         </li>
         <li class="nav-field">
-        <p {% if request.path == '/journals' %}class="current-page"{% endif %}><a href={{url_for("journals")}} class="smallcaps">The Journals</a></p>
+          <p {% if request.path == '/journals' %}class="current-page"{% endif %}>
+          <a href={{url_for("journals")}} class="smallcaps">The Journals</a>
+          </p>
         </li>
         <li class="nav-field">
           <p {% if request.path == '/networks' %}class="current-page"{% endif %}><a target="_blank" href="http://cdh.princeton.edu" class="smallcaps">Networks</a></p>
         </li>
         <li class="nav-field">
-          <p {% if request.path == '/visual-essays' %}class="current-page"{% endif %}><a target="_blank" href="http://cdh.princeton.edu" class="smallcaps">Visual Essays</a></p>
+          <p {% if '/visual-essays/' in request.path %}class="current-page"{% endif %}>
+          <a href='#' id='visual-essays' class="smallcaps">Visual Essays</a>
+          </p>
+          <ul id="sub-nav" class="sub-nav">
+            <li class="sub-nav-field">
+              <p><a href={{url_for("essays_overview")}} class="smallcaps subnav-link">Overview</a></p>
+            </li>
+            <li class="sub-nav-field">
+              <p><a href={{url_for("essay_one")}} class="smallcaps subnav-link">Essay 1</a></p>
+            </li>
+            <li class="sub-nav-field">
+              <p><a href={{url_for("essay_two")}} class="smallcaps subnav-link">Essay 2</a></p>
+            </li>
+            <li class="sub-nav-field">
+              <p><a href={{url_for("essay_three")}} class="smallcaps subnav-link">Essay 3</a></p>
+            </li>
+          </ul>
         </li>
         <li class="nav-field">
-          <p {% if request.path == '/visualizations/database' %}class="current-page"{% endif %}><a href={{url_for("database")}} class="smallcaps">Database</a></p>
+          <p {% if request.path == '/visualizations/database' %}class="current-page"{% endif %}>
+          <a href={{url_for("database")}} class="smallcaps">Database</a>
+          </p>
         </li>
         <li class="nav-field">
-          <p><a target="_blank" href="http://philipgleissner.com/category/sjr/" class="smallcaps">Blog</a></p>
+          <p>
+          <a target="_blank" href="http://philipgleissner.com/category/sjr/" class="smallcaps">Blog</a>
+          </p>
         </li>
       </ul>
-        <div id="content">
-          {% block content%}
-          {% endblock %}
-        </div>
+      <div id="content">
+        {% block content%}
+        {% endblock %}
+      </div>
 
-        <div id="footer">
-          <p><em>Soviet Journals Reconnected: Periodical Networks under Late Socialism</em></p>
-          <div id="footer_credits">
-            <a target="_blank" href="http://cdh.princeton.edu"><img src={{url_for('static', filename="images/cdh_logo.png")}} title="Center for Digital Humanities at Princeton"></a>
-          </div>
-        </div><!-- end footer -->
-      </div><!-- end allcontent -->
+      <div id="footer">
+        <p><em>Soviet Journals Reconnected: Periodical Networks under Late Socialism</em></p>
+        <div id="footer_credits">
+          <a target="_blank" href="http://cdh.princeton.edu"><img src={{url_for('static', filename="images/cdh_logo.png")}} title="Center for Digital Humanities at Princeton"></a>
+        </div>
+      </div><!-- end footer -->
+    </div><!-- end allcontent -->
+    <script src="{{url_for('static', filename='script.js')}}"></script>
   </body>
 </html>

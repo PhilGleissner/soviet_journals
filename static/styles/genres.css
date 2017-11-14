@@ -45,15 +45,29 @@ h2 {
 	min-height: 50px;
 }
 
-.nav-field {
+.nav-field, .sub-nav-field {
   list-style: none;
-  width: 150px;
+  width: 160px;
 	text-align: center;
 	margin: 0 auto;
 	border-left: thin dotted;
 	border-bottom: thin dotted;
+	height: 50px;
+  background-color: white;
+}
+
+.nav-field {
   border-top: thin dotted;
-	min-height: 50px;
+}
+
+.sub-nav-field {
+  border-right: thin dotted;
+  margin-top: -16px;
+}
+
+.subnav-link {
+  display: block;
+  padding-top: 15px;
 }
 
 .nav-field:last-child {
@@ -67,6 +81,24 @@ h2 {
 
 .current-page a {
   font-weight: bold;
+}
+
+.sub-nav-field {
+  list-style: none;
+}
+
+.sub-nav {
+  display: none;
+  -webkit-padding-start: 0;
+  margin-left: -1px;
+}
+
+.sub-nav.active{
+  display: block;
+}
+
+.sub-nav-field:first-child {
+  margin-top: -3px;
 }
 
 #wrapper {
