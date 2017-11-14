@@ -34,7 +34,7 @@
           <p {% if request.path == '/networks' %}class="current-page"{% endif %}><a target="_blank" href="http://cdh.princeton.edu" class="smallcaps">Networks</a></p>
         </li>
         <li class="nav-field">
-          <p {% if request.path == '/visual-essays/*' %}class="current-page"{% endif %}>
+          <p {% if '/visual-essays/' in request.path %}class="current-page"{% endif %}>
           <a href='#' id='visual-essays' class="smallcaps">Visual Essays</a>
           </p>
           <ul id="sub-nav" class="sub-nav">
