@@ -2,18 +2,6 @@
 {% block title %}Essay 1{% endblock %}
 {% block content%}
 <div id="main">
-  <h1>Essay 1</h1>
-  <p>Beginning of essay 1 goes here. At the beginning of Soviet Journals Reconnected stood the idea of a dataset that would collect and connect information about thick journals. Who published what, where, and when? Some of the relevant data is available in digital format already, which made the</p>
-
-  <p>The database schema presented here was designed with SJR's research questions in mind, but it is also envisioned as a model that can align easily with adjacent research projects and that can accommodate datasets from different cultural, geographical, and historical contexts.</p>
-
-  <p><img src={{url_for('static', filename="images/sjr_database.png")}} style="width:900;height:676px;" hspace="5" border="1"></p>
-
-  <p>SJR uses a relational database in MySQL that consists of four modules: journals, contributions, persons and locations. (What is a relational database?) In keeping with current periodical studies research, the SJR database has at its core not the individual text, but the journal and the individual issue, which provides is the connecting point between two (overlapping) social groups: editors and authors.</p>
-
-  <h2>Some sub headline goes here</h2>
-  <p>The Persons and Locations modules are really just one list each, but designing them as separate modules nevertheless was a conscious decision.</p>
-
-  <p><img src={{url_for('static', filename="images/sjr_database_persons_locations.png")}} style="width:900;height:676px;" hspace="5" border="1"></p>
+  {{ essay_1|markdown }}
 </div>
 {% endblock %}
