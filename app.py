@@ -1,6 +1,5 @@
 from flask import Flask, redirect, request, url_for
 from flask import render_template
-from journals_data import JOURNALS_DATA
 
 app = Flask(__name__)
 
@@ -10,7 +9,7 @@ def home():
 
 @app.route('/journals')
 def journals():
-    return render_template('/journals.html', journals_data=JOURNALS_DATA)
+    return render_template('/journals.html')
 
 @app.route('/visual-essays/overview')
 def essays_overview():
