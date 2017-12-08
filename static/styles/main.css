@@ -9,7 +9,7 @@ body {
 	padding: 0 30px;
 	border-left: thin dotted;
 	border-right: thin dotted;
-	min-height: 800px;
+  overflow: auto;
 }
 
 a {

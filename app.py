@@ -1,8 +1,9 @@
 from flask import Flask, redirect, request, url_for
 from flask import render_template
-from journals_data import JOURNALS_DATA
+from flaskext.markdown import Markdown
 
 app = Flask(__name__)
+Markdown(app)
 
 @app.route("/")
 def home():
@@ -10,7 +11,7 @@ def home():
 
 @app.route('/journals')
 def journals():
-    return render_template('/journals.html', journals_data=JOURNALS_DATA)
+    return render_template('/journals.html')
 
 @app.route('/visual-essays/overview')
 def essays_overview():
@@ -18,15 +19,24 @@ def essays_overview():
 
 @app.route('/visual-essays/essay-1')
 def essay_one():
-        return render_template('visual-essays/essay-1.html')
+    content = ""
+    with open("essays/essay-1.md", "r") as f:
+        content = f.read()
+        return render_template('visual-essays/essay-1.html', essay_1=content)
 
 @app.route('/visual-essays/essay-2')
 def essay_two():
-        return render_template('visual-essays/essay-2.html')
+    content = ""
+    with open("essays/essay-2.md", "r") as f:
+        content = f.read()
+        return render_template('visual-essays/essay-2.html', essay_2=content)
 
 @app.route('/visual-essays/essay-3')
 def essay_three():
-        return render_template('visual-essays/essay-3.html')
+    content = ""
+    with open("essays/essay-3.md", "r") as f:
+        content = f.read()
+        return render_template('visual-essays/essay-3.html', essay_3=content)
 
 @app.route('/visualizations/database')
 def database():
