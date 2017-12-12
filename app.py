@@ -1,4 +1,4 @@
-from flask import Flask, redirect, request, url_for
+from flask import Flask, redirect, request, url_for, send_from_directory
 from flask import render_template
 from flaskext.markdown import Markdown
 
@@ -41,6 +41,10 @@ def essay_three():
 @app.route('/visualizations/database')
 def database():
 	return render_template('visualizations/database.html')
+
+@app.route('/robots.txt')
+def static_from_root():
+        return send_from_directory(app.static_folder, request.path[1:])
 
 if __name__ == '__main__':
 	app.run()
