@@ -9,8 +9,8 @@ var rotisserie4 =  document.querySelectorAll('.rotisserie4')[0]
 var covers4 = rotisserie4.querySelectorAll('.journal-cover4')
 var rotisserie5 =  document.querySelectorAll('.rotisserie5')[0]
 var covers5 = rotisserie5.querySelectorAll('.journal-cover5')
-var rotisserie6 =  document.querySelectorAll('.rotisserie6')[0]
-var covers6 = rotisserie6.querySelectorAll('.journal-cover6')
+//var rotisserie6 =  document.querySelectorAll('.rotisserie6')[0]
+//var covers6 = rotisserie6.querySelectorAll('.journal-cover6')
 
 document.querySelector('.rotisserie1-next').addEventListener('click', function(event) {
   event.preventDefault()
@@ -62,15 +62,15 @@ document.querySelector('.rotisserie5-back').addEventListener('click', function(e
   displayPreviousImage(covers5)
 })
 
-document.querySelector('.rotisserie6-next').addEventListener('click', function(event) {
-  event.preventDefault()
-  displayNextImage(covers6)
-})
+//document.querySelector('.rotisserie6-next').addEventListener('click', function(event) {
+  //event.preventDefault()
+  //displayNextImage(covers6)
+//})
 
-document.querySelector('.rotisserie6-back').addEventListener('click', function(event) {
-  event.preventDefault()
-  displayPreviousImage(covers6)
-})
+//document.querySelector('.rotisserie6-back').addEventListener('click', function(event) {
+  //event.preventDefault()
+  //displayPreviousImage(covers6)
+//})
 
 function displayNextImage(covers) {
   resetClasses(covers)
