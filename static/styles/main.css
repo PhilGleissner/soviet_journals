@@ -1,3 +1,11 @@
+.clearfix:after {
+  content: "";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+
 body {
 	font-family: 'Lora', serif;
   font-size: 16px;
@@ -164,7 +172,6 @@ p.caption {
 
 .journal {
   list-style: none;
-  display: flex;
 }
 
 .journal h3 {
@@ -172,10 +179,10 @@ p.caption {
 }
 
 .journal-covers {
+  list-style: none;
   position: relative;
   padding: 0px;
   margin: 0px;
-  list-style-type: none;
 }
 
 .journal-cover {
@@ -192,7 +199,7 @@ p.caption {
   transition: opacity 1s;
 }
 
-.display {
+.show {
   opacity: 1;
   z-index: 2;
 }
@@ -202,6 +209,50 @@ p.caption {
   height: 300px;
   margin-right: 30px;
   margin-top: 27px;
+}
+
+.rotisserie {
+  position: relative;
+  height: 328px;
+  width: 232px;
+  float: left;
+  margin-right: 25px;
+}
+
+.rotisserie-next, .rotisserie-back {
+  position: absolute;
+  top: 150px;
+  z-index: 3;
+  cursor: pointer;
+  background-color: lightgrey;
+  width: 10px;
+  height: 20px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.rotisserie-next {
+  left: 202px;
+}
+
+.rotisserie-back {
+  left: -32px;
+}
+
+.right-arrow {
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid white;
+}
+
+.left-arrow {
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid white;
 }
 
 #allcontent {

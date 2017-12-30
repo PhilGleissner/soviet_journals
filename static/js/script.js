@@ -27,8 +27,6 @@ function notTryingToNavigateToEssays() {
 function isSubNavLink() {
   var i
   for (i = 0; i < subNavLinks.length; i++) {
-    console.log('isSubNavLink')
-    console.log(subNavLinks[i].classList.contains('subnav-link'))
     return subNavLinks[i].classList.contains('subnav-link')
   }
 }
