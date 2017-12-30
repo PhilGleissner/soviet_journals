@@ -42,6 +42,10 @@ def essay_three():
 def database():
 	return render_template('visualizations/database.html')
 
+@app.route("/acknowledgements")
+def acknowledgements():
+    return render_template('acknowledgements.html')
+
 @app.route('/robots.txt')
 def static_from_root():
         return send_from_directory(app.static_folder, request.path[1:])
