@@ -172,6 +172,11 @@ p.caption {
 
 .journal {
   list-style: none;
+  border-bottom: 1px solid grey;
+}
+
+.journal:last-child {
+  border-bottom: none;
 }
 
 .journal h3 {
@@ -205,23 +210,21 @@ p.caption {
 }
 
 .journal-cover-img {
-  width: 200px;
-  height: 300px;
+  width: 365px;
   margin-right: 30px;
-  margin-top: 27px;
 }
 
 .rotisserie {
   position: relative;
-  height: 328px;
-  width: 232px;
+  height: 445px;
+  width: 365px;
   float: left;
   margin-right: 25px;
 }
 
 .rotisserie-next, .rotisserie-back {
   position: absolute;
-  top: 150px;
+  top: 230px;
   z-index: 3;
   cursor: pointer;
   background-color: lightgrey;
@@ -232,11 +235,11 @@ p.caption {
 }
 
 .rotisserie-next {
-  left: 202px;
+  left: 355px;
 }
 
 .rotisserie-back {
-  left: -32px;
+  left: -21px;
 }
 
 .right-arrow {
