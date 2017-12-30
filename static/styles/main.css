@@ -1,7 +1,7 @@
 body {
 	font-family: 'Lora', serif;
   font-size: 16px;
-  line-height: 26px;
+  line-height: 30px;
 }
 
 #allcontent {
@@ -49,6 +49,7 @@ h2 {
 	border-bottom: thin dotted;
 	height: 50px;
   background-color: white;
+  line-height: 1em;
 }
 
 .nav-field {
@@ -158,6 +159,7 @@ p.caption {
   font-size: 3em;
   width: 670px;
   margin-left: 70px;
+  line-height: 1.4em;
 }
 
 .journal {
