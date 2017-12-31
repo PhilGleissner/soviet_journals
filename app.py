@@ -1,9 +1,11 @@
 from flask import Flask, redirect, request, url_for, send_from_directory
 from flask import render_template
 from flaskext.markdown import Markdown
+import os
 
 app = Flask(__name__)
 Markdown(app)
+SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 
 @app.route("/")
 def home():
@@ -20,21 +22,24 @@ def essays_overview():
 @app.route('/visual-essays/essay-1')
 def essay_one():
     content = ""
-    with open("essays/essay-1.md", "r") as f:
+    path_to_essay = os.path.join(SITE_ROOT, 'essays', 'essay-1.md')
+    with open(path_to_essay, "r") as f:
         content = f.read()
         return render_template('visual-essays/essay-1.html', essay_1=content)
 
 @app.route('/visual-essays/essay-2')
 def essay_two():
     content = ""
-    with open("essays/essay-2.md", "r") as f:
+    path_to_essay = os.path.join(SITE_ROOT, 'essays', 'essay-2.md')
+    with open(path_to_essay, "r") as f:
         content = f.read()
         return render_template('visual-essays/essay-2.html', essay_2=content)
 
 @app.route('/visual-essays/essay-3')
 def essay_three():
     content = ""
-    with open("essays/essay-3.md", "r") as f:
+    path_to_essay = os.path.join(SITE_ROOT, 'essays', 'essay-3.md')
+    with open(path_to_essay, "r") as f:
         content = f.read()
         return render_template('visual-essays/essay-3.html', essay_3=content)
 
