@@ -7,6 +7,8 @@
     <link type="text/css" rel="stylesheet" href={{url_for('static', filename='styles/main.css')}}/>
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700&amp;subset=cyrillic" rel="stylesheet">
     <meta name="google-site-verification" content="lARAGNbXWD4ZruyHeOBTriKVwgW3PhSnm84LeSq8G5Y" />
+    <link rel="stylesheet" type="text/css" href={{url_for('static', filename='styles/gexf-js/gexfjs.css')}} />
+    <link rel="stylesheet" type="text/css" href={{url_for('static', filename='styles/gexf-js/jquery-ui-1.10.3.custom.min.css')}} />
     {% endblock %}
   </head>
   <body>
@@ -33,7 +35,7 @@
           </p>
         </li>
         <li class="nav-field">
-          <p {% if request.path == '/networks' %}class="current-page"{% endif %}><a target="_blank" href="http://cdh.princeton.edu" class="smallcaps">Networks</a></p>
+          <p {% if request.path == '/networks' %}class="current-page"{% endif %}><a  href={{url_for("networks")}} class="smallcaps">Networks</a></p>
         </li>
         <li class="nav-field">
           <p {% if '/visual-essays/' in request.path %}class="current-page"{% endif %}>
@@ -80,7 +82,6 @@
         </div>
       </div><!-- end footer -->
     </div><!-- end allcontent -->
-    <script src="{{url_for('static', filename='js/imageCarousel.js')}}"></script>
     <script src="{{url_for('static', filename='js/script.js')}}"></script>
   </body>
 </html>

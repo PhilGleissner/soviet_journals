@@ -15,6 +15,14 @@ def home():
 def journals():
     return render_template('/journals.html')
 
+@app.route('/networks')
+def networks():
+    return render_template('/networks.html')
+
+@app.route('/network-explorer')
+def network_explorer():
+    return render_template('/network-explorer.html')
+
 @app.route('/visual-essays/overview')
 def essays_overview():
 	return render_template('visual-essays/overview.html')
