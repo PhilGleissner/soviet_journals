@@ -3,13 +3,13 @@
 {% block content%}
 <div id="main">
   <h1>Designing a Periodical Studies Database</h1>
-  <p>At the beginning of Soviet Journals Reconnected stood the idea of a dataset that would collect and connect information about thick journals. Who published what, where, and when? Some of the relevant data is available in digital format already, which made the project much more feasible. The Chronicle of Journal Articles, a Soviet index of all periodical publication, has been digitized by <a target="_blank" href="http://webapp1.dlib.indiana.edu/letopis/index.jsp?lang=en" alt="Link to the Indiana University Libraries Digital Projects website">Indiana University Libraries Digital Projects &#038; Services</a>. Since SJR is specifically interested in the institutional and social framework of Soviet publishing, additional data was gathered: print runs, page counts, and editors. This additional data as well as the project’s focus on methods like network analysis called for a reorganization of the data in a relational database that specifically suits the needs of a digital periodical studies project.</p>
+  <p>At the beginning of Soviet Journals Reconnected stood the idea of a dataset that would collect and connect information about thick journals. Who published what, where, and when? Some of the relevant data is available in digital format already, which made the project much more feasible. The Chronicle of Journal Articles, a Soviet index of all periodical publications, has been digitized by <a target="_blank" href="http://webapp1.dlib.indiana.edu/letopis/index.jsp?lang=en" alt="Link to the Indiana University Libraries Digital Projects website">Indiana University Libraries Digital Projects &#038; Services</a>. Since SJR is specifically interested in the institutional and social framework of Soviet publishing, additional data was gathered: print runs, page counts, and editors. This additional data as well as the project’s focus on methods like network analysis called for a reorganization of the data in a relational database that specifically suits the needs of a digital periodical studies project.</p>
 
   <p>The database schema presented here was designed with SJR's research questions in mind, but it is also envisioned as a model that can align easily with adjacent research projects and that can accommodate datasets from different cultural, geographical, and historical contexts.</p>
 
   <p><img src={{url_for('static', filename="images/sjr_database.png")}} style="width:900;height:676px;" hspace="5" border="1"></p>
 
-  <p>SJR uses a relational database in MySQL that consists of four modules: journals, contributions, persons and locations. (What is a relational database?) In keeping with current periodical studies research, the SJR database has at its core not the individual text, but the journal and the individual issue, which provides is the connecting point between two (overlapping) social groups: editors and authors.</p>
+  <p>SJR uses a relational database in MySQL that consists of four modules: journals, contributions, persons, and locations. In keeping with current periodical studies research, the SJR database has at its core not the individual text, but the journal and the individual issue, which provide the connecting point between two (overlapping) social groups: editors and authors.</p>
 
   <h2>The Persons and Locations Modules</h2>
   <p>The Persons and Locations modules are really just one list each, but designing them as separate modules nevertheless was a conscious decision.</p>
@@ -20,10 +20,10 @@
 
   <p>The persons module, also a single table, takes up a special position. It stands between the journals module and the contributions module, because both editors and authors are persons and they routinely appear in both roles. In fact, this is one of questions SJR is especially interested in: how did editors act in their roles as authors? (More often than not did they publish not in their own journals, which brings up peculiar questions about the mechanisms of Soviet publishing.)</p>
 
-  <p>The persons list features information on first name, last name, and patronymic. The VIAF field in the persons table connects the SJR database to a bibliographic convention and allows to identify authors as unique historical persons. (More on VIAF and the challenges of reconciling data.)</p>
+  <p>The persons list features information on first name, last name, and patronymic. The VIAF field in the persons table connects the SJR database to a bibliographic convention and allows to identify authors as unique historical persons. (More on VIAF and the challenges of reconciling data on the <a target="_blank" href="http://philipgleissner.com/digitalemigre/#normalizing" alt="Link to SJR Blog">SJR blog</a>).)</p>
 
   <h2>The Journals Module</h2>
-  <p>The Journals Module consists of three tables. The journals table lists all journals (Novyi mir, Iunost’, Oktiabr’, etc.). Just like all other tables, it captures Russian-language information in the original and in Library of Congress transliteration (more on automatized transliteration). The issues list includes information about each individual journal issue. The field issues_pa indicates the publication frequency of the journal at the time of publication: 12, 6 or 4 issues per year.</p>
+  <p>The Journals Module consists of three tables. The journals table lists all journals (Novyi mir, Iunost’, Oktiabr’, etc.). Just like all other tables, it captures Russian-language information in the original and in Library of Congress transliteration (read more about automatized transliteration on the <a target="_blank" href="http://philipgleissner.com/automatic-transliteration-using-open-refine/" alt="Link to SJR Blog">SJR blog</a>). The issues list includes information about each individual journal issue. The field issues_pa indicates the publication frequency of the journal at the time of publication: 12, 6 or 4 issues per year.</p>
 
   <p><img src={{url_for('static', filename="images/sjr_database_journals.png")}} style="width:900;height:675px;" hspace="5" border="1"></p>
 
@@ -36,6 +36,6 @@
 
   <p>Finally, the contributions are connected to the persons table by the linking table contribrolepersoncontribution, where the contribrole table provides a number of roles, in which persons can be connected to the creation of a contribution: as an author, a translator, an illustrator, a redactor (in the sense of the Russian составитель) for selections.</p>
 
-  <p>While an online search interface for the database is still being developed, you can access the database itself on my Github account.</p>
+  <p>While an online search interface for the database is still being developed, you can access the database itself on my <a target="_blank" href="https://github.com/PhilGleissner/soviet_journals" alt="Link to Github Repository">Github account</a>.</p>
 </div><!-- end main -->
 {% endblock %} <!-- end content block -->

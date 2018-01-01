@@ -4,8 +4,11 @@
 <div id="wrapper">
   <div id="main">
     <h1>Network explorer</h1>
-    <p>Some intro about what it is and all that</p>
-    <p><a href={{url_for("network_explorer")}}>Click here to learn more.</a></p>
+    <p>Soviet Journals Reconnected uses bibliographical metadata to analyze periodicals as social communities. Network visualizations show which editors worked together in one or several journals. Networks of co-publication make tangible to what degree the magazines facilitated the separate development of literary communities during the period of late socialism. The network visualizations were created with the software <a target="_blank" href="https://gephi.org/" alt="Link to the Website of the Network Analysis Software Gephi">Gephi</a> and are integrated into this Flask website, using Raphael Velt's <a target="_blank" href="https://github.com/raphv/gexf-js" alt="Link to GEXF Viewer on Github">JavaScript GEXF Viewer</a>.</p>
+    <h2>I. Moscow-Based Editors Between 1958 and 1972</h2>
+    <p>Between 1958 and 1972, around 180 editors worked in the six Moscow-based journals currently covered by the Soviet Journals Reconnected Database. This network visualization shows the color-coded communities of editors that collaborated in one or several editorial offices.</p>
+	<p><img src={{url_for('static', filename="images/editors_58_72.png")}} style="width:900;height:593px;" hspace="5" border="1"></p>
+	<p>The interactive network visualization allows you to explore the positions of individual editors, some of which managed to bridge several journals and literary communities within the decade. <a href={{url_for("network_explorer")}}>Click here to look at the network.</a></p>
   </div>
 </div>
 {% endblock %}

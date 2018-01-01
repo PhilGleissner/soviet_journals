@@ -55,6 +55,10 @@ def essay_three():
 def database():
 	return render_template('visualizations/database.html')
 
+@app.route('/blog')
+def blog():
+    return render_template('blog.html')
+
 @app.route("/acknowledgements")
 def acknowledgements():
     return render_template('acknowledgements.html')
