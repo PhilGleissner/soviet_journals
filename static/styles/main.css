@@ -30,6 +30,7 @@ h2 {
 	color: #333;
 	margin-bottom: 0;
 	font-style: italic;
+  line-height: 1.3em
 }
 
 #creators {
@@ -264,4 +265,14 @@ p.caption {
   padding: 0 30px;
   border-left: thin dotted;
   border-right: thin dotted;
+}
+
+.essay_teasers {
+  list-style: none;
+  margin-left: 0;
+  padding: 0;
+}
+
+.essay_teaser {
+  display: flex;
 }
